@@ -15,7 +15,7 @@ public class farmaciaCrud {
         JFrame frame = new JFrame("evaluacionDos");
         frame.setContentPane(new farmaciaCrud().mainPanel);
         frame.setTitle("INVENTARIO 1");
-        frame.setSize(600,300);
+        frame.setSize(800,500);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
