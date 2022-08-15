@@ -14,6 +14,9 @@ public class farmaciaCrud extends JFrame
     private JButton crearButton;
     private JButton actualizarButton;
     private JButton borrarButton;
+    private JButton consultarBT;
+    private JScrollPane content;
+    private JTextArea informacionTXT;
     private JLabel nombre;
 
     private void limpiarPantalla() {
@@ -26,7 +29,7 @@ public class farmaciaCrud extends JFrame
     public farmaciaCrud(JFrame parent) {
         setTitle("MegaMarketyt");
         setContentPane(mainPanel);
-        setSize(800,500);
+        setSize(800,450);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         crearButton.addActionListener(new ActionListener() {
@@ -80,5 +83,19 @@ public class farmaciaCrud extends JFrame
                 limpiarPantalla();
             }
         });
+        consultarBT.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    conn.conectarBasedeDatos();
+                    conn.mostrarDatos(informacionTXT);
+                    conn.cerrarBasedeDatos();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
+
+
 }

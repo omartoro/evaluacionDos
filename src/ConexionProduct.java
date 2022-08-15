@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -70,6 +71,25 @@ public class ConexionProduct
             modificar.setString(2, cantidad);
             modificar.setString(3, precio);
             modificar.executeUpdate();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void mostrarDatos(JTextArea informacionTXT) {
+        try {
+            PreparedStatement selecionar = conexion.prepareStatement("SELECT * FROM productos");
+            ResultSet consulta = selecionar.executeQuery();
+            while (consulta.next()) {
+                informacionTXT.append(consulta.getString(1));
+                informacionTXT.append("         ");
+                informacionTXT.append(consulta.getString(2));
+                informacionTXT.append("         ");
+                informacionTXT.append(consulta.getString(3));
+                informacionTXT.append("         ");
+                informacionTXT.append(consulta.getString(4));
+                informacionTXT.append("\n");
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }
