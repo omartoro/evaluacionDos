@@ -1,6 +1,7 @@
 import javax.swing.*;
 
-public class farmaciaCrud {
+public class farmaciaCrud extends JFrame
+{
     private JPanel mainPanel;
     private JTextField textField1;
     private JTextField textField2;
@@ -10,13 +11,11 @@ public class farmaciaCrud {
     private JButton actualizarButton;
     private JButton borrarButton;
 
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("evaluacionDos");
-        frame.setContentPane(new farmaciaCrud().mainPanel);
-        frame.setTitle("INVENTARIO 1");
-        frame.setSize(800,500);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+    public farmaciaCrud(JFrame parent) {
+        setTitle("MegaMarketyt");
+        setContentPane(mainPanel);
+        setSize(800,500);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 }
